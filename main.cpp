@@ -5,10 +5,13 @@ using namespace std;
 // 功能：計算平均值
 double calculateAverage(const vector<int> &numbers)
 {
-    int sum = 0;
-    for (int i = 0; i <= numbers.size(); i++)
+    if (numbers.empty()) // 防止除以零
+        return 0.0;
+
+    long long sum = 0;
+    for (int n : numbers) // 使用範圍迴圈避免越界
     {
-        sum += numbers[i];
+        sum += n;
     }
     return static_cast<double>(sum) / numbers.size();
 }
